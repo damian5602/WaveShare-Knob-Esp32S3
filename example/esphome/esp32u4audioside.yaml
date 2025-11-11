@@ -1,4 +1,3 @@
-#after uploading it i'm not able to upload firmware to the second esp by wireless but connectivity with ha works for me
 esphome:
   name: esp32u4audioside
   friendly_name: esp32u4audioside
