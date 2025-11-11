@@ -1,12 +1,12 @@
 # WaveShare/Guition -Knob-ESP32S3
+Forked from https://github.com/KrX3D/WaveShare-Knob-Esp32S3
 
-## ESP32-U4
-Uploaded code for second ESP32 for media player
 
 ---
 ## Changes
 - Added microphone and voice assistant
-
+- Uploaded code for second ESP32 for media player
+- Added support for external voice assistant
 ---
 
 ## Features
@@ -25,6 +25,7 @@ Uploaded code for second ESP32 for media player
 
 
 Big thanks to RealDeco for help and contributions — audio and mic integration are currently being tested.
+
 
 
 
