@@ -81,7 +81,7 @@ voice_assistant:
       - homeassistant.service:
           service: media_player.media_play
           data:
-            entity_id: media_player.entity_name_from_second_esp_to_play_audio_from_voice_assistant #to continue playing - still looking ofr better sollution
+            entity_id: media_player.entity_name_from_second_esp_to_play_audio_from_voice_assistant #to continue playing - still looking for better solution
 switch:
   - platform: template
     name: Use wake word
@@ -100,4 +100,5 @@ switch:
     on_turn_off:
       - voice_assistant.stop
       - lambda: id(assist).set_use_wake_word(false);
+
 
