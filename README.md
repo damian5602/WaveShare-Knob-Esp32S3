@@ -1,5 +1,8 @@
 # WaveShare/Guition -Knob-ESP32S3
 
+## ESP32-U4
+Uploaded code for second ESP32 for media player
+
 > Work in progress — WaveShare/Guition knob on an ESP32-S3.
 ---
 
@@ -32,5 +35,6 @@ If you encounter other issues or want to help, please open an issue or a PR.
 
 ---
 ## Credits
+
 
 Big thanks to RealDeco for help and contributions — audio and mic integration are currently being tested.
