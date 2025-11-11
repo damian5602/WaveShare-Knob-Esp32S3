@@ -16,11 +16,11 @@ logger:
 # Enable Home Assistant API
 api:
   encryption:
-    key: "x+7LF3SyrnWCuze5LRHfsqJRvKin3GcxanNpghZncDY="
+    key: ""
 
 ota:
   - platform: esphome
-    password: "4760cfd24f9d3be0f20f35ee933d9af4"
+    password: ""
 
 wifi:
   ssid: !secret wifi_ssid
@@ -28,8 +28,8 @@ wifi:
 
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
-    ssid: "Esp32U4Audioside"
-    password: "itG9n6ryXcxm"
+    ssid: ""
+    password: ""
 
 captive_portal:
 i2s_audio:
@@ -44,7 +44,7 @@ media_player:
     mode: stereo
     id: mp
     i2s_audio_id: i2sout
-    name: "Radio Kuchnia"
+    name: "PLAYER"
 output:
   - platform: gpio
     pin: GPIO32
