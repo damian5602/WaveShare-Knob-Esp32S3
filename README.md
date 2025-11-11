@@ -1,4 +1,4 @@
-# WaveShare/Guition -Knob-ESP32S3
+# ESP32S3 KNOB JC3636K518C-I-YR1
 Forked from https://github.com/KrX3D/WaveShare-Knob-Esp32S3
 
 
@@ -25,6 +25,7 @@ Forked from https://github.com/KrX3D/WaveShare-Knob-Esp32S3
 
 
 Big thanks to RealDeco for help and contributions — audio and mic integration are currently being tested.
+
 
 
 
