@@ -44,4 +44,51 @@ uart:
       delimiter: "\n"          # split debug accumulations on newline (adjust to your device)
     sequence:
       - lambda: |-
+
           UARTDebug::log_string(direction, bytes);
+
+i2s_audio:
+  - i2s_lrclk_pin: GPIO45
+    i2s_bclk_pin: GPIO42
+microphone:
+  - platform: i2s_audio
+    id: i2s_microphone
+    i2s_din_pin: GPIO46
+    adc_type: external
+    channel: left
+    pdm: true
+
+voice_assistant:
+  id: assist
+  microphone: i2s_microphone
+  use_wake_word: false
+  noise_suppression_level: 2 #4
+  auto_gain: 31dBFS # 31dBFS
+  volume_multiplier: 2 # 8.0
+  on_tts_start:
+    - homeassistant.service:
+        service: tts.cloud_say
+        data:
+          entity_id: media_player.entity_name_from_second_esp_to_play_audio_from_voice_assistant
+        data_template:
+          message: "{{ my_stt }}"
+        variables:
+          my_stt: return x;
+switch:
+  - platform: template
+    name: Use wake word
+    id: use_wake_word
+    optimistic: true
+    restore_mode: RESTORE_DEFAULT_ON
+    entity_category: config
+    on_turn_on:
+      - lambda: id(assist).set_use_wake_word(true);
+      - if:
+          condition:
+            not:
+              - voice_assistant.is_running
+          then:
+            - voice_assistant.start_continuous
+    on_turn_off:
+      - voice_assistant.stop
+      - lambda: id(assist).set_use_wake_word(false);
