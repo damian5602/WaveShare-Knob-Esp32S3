@@ -5,7 +5,7 @@ Uploaded code for second ESP32 for media player
 
 ---
 ## Changes
-Added microphone and voice assistant
+- Added microphone and voice assistant
 
 ---
 
@@ -25,5 +25,6 @@ Added microphone and voice assistant
 
 
 Big thanks to RealDeco for help and contributions — audio and mic integration are currently being tested.
+
 
 
