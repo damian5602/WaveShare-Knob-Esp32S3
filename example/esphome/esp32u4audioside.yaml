@@ -1,0 +1,51 @@
+esphome:
+  name: esp32u4audioside
+  friendly_name: esp32u4audioside
+  on_boot:
+    priority: 600
+    then:
+      - output.turn_on: mute
+esp32:
+  board: esp32dev
+  framework:
+    type: arduino
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: "x+7LF3SyrnWCuze5LRHfsqJRvKin3GcxanNpghZncDY="
+
+ota:
+  - platform: esphome
+    password: "4760cfd24f9d3be0f20f35ee933d9af4"
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Esp32U4Audioside"
+    password: "itG9n6ryXcxm"
+
+captive_portal:
+i2s_audio:
+  - id: i2sout
+    i2s_lrclk_pin: GPIO27
+    i2s_bclk_pin: GPIO25
+
+media_player:
+  - platform: i2s_audio
+    dac_type: external
+    i2s_dout_pin: GPIO26
+    mode: stereo
+    id: mp
+    i2s_audio_id: i2sout
+    name: "Radio Kuchnia"
+output:
+  - platform: gpio
+    pin: GPIO32
+    id: mute
